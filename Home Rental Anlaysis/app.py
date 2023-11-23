@@ -26,7 +26,7 @@ with col2:
         limit 7
         """, connection)
 	
-	st.subheader("Top PPW by City")
+	st.subheader("Average PPW by City")
 	st.write(alt.Chart(df_top_city_rent_price, width=400, height = 350).mark_bar(width=17,color="ivory").encode(x=alt.X('city', sort=None),y='avg_rent'))
 	
 	df_rooms = pd.read_sql_query(f"""
@@ -58,6 +58,6 @@ with col4:
         """, connection)
 
 	st.subheader("Number of listings per type")
-	st.write(alt.Chart(df_num_houses_per_type, width=400, height= 200).mark_arc(align="center").encode(theta="count_prop",color="type"))
+	st.write(alt.Chart(df_num_houses_per_type, width=400, height= 240).mark_arc(align="center").encode(theta="count_prop",color="type"))
 	st.subheader("Average PPW by Type")
-	st.write(alt.Chart(df_avg_rent_price_per_type, width=400, height=250).mark_bar(width=17,color="orange").encode(x=alt.X('type', sort=None),y='avg_rent'))
+	st.write(alt.Chart(df_avg_rent_price_per_type, width=400, height=270).mark_bar(width=17,color="orange").encode(x=alt.X('type', sort=None),y='avg_rent'))
